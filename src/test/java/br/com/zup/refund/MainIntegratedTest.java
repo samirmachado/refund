@@ -17,11 +17,16 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = RefundApplication.class)
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
 public class MainIntegratedTest {
+    
+    @Autowired
+    protected ObjectMapper mapper; 
 
     // @Value("open.database.manager")
     private static Boolean openDatabaseManager = false;

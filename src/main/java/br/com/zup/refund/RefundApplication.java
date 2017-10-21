@@ -23,7 +23,7 @@ public class RefundApplication {
 	    return new ModelMapper();
 	}
 	
-	@Bean
+	@Bean(name="mapper")
     public ObjectMapper objectMapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
