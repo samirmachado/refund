@@ -3,6 +3,9 @@ package br.com.zup.refund.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import br.com.zup.refund.model.exception.InvalidTokenException;
 
 @Component
 public class MainController {
@@ -24,5 +27,10 @@ public class MainController {
     
     protected <T> ResponseEntity<T> response(T object, HttpStatus status) {
         return new ResponseEntity<T>(object, status);
+    }
+    
+    @ExceptionHandler({ InvalidTokenException.class })
+    public ResponseEntity<Object> invalidTokenExceptionHandler() {
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 }
