@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper=false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserTO extends MainTO<UserTO, Employee>{
+public class EmployeeTO extends MainTO<EmployeeTO, Employee>{
     private Long id;
     private String name;
     private String email;

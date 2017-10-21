@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
 import br.com.zup.refund.MainIntegratedTest;
-import br.com.zup.refund.repository.UserRepository;
+import br.com.zup.refund.repository.EmployeeRepository;
 
 public class MainTOTest extends MainIntegratedTest{
     
     @Autowired
-    private UserRepository userRepository;
+    private EmployeeRepository employeeRepository;
     
     @After
     public void setup() throws Exception {

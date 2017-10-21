@@ -9,32 +9,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
-import br.com.zup.refund.model.User;
-import br.com.zup.refund.repository.UserRepository;
+import br.com.zup.refund.model.employee.Employee;
+import br.com.zup.refund.repository.EmployeeRepository;
 
 @ApplicationScope
 @Component
 public class Session {
     
     @Autowired
-    private UserRepository userRepository;
+    private EmployeeRepository employeeRepository;
     
-    Map<String, User> authorizeds = new HashMap<String, User>();
+    Map<String, Employee> authorizeds = new HashMap<String, Employee>();
     
     public Boolean checkAuthorization(String token) {
-        User loggedUser = authorizeds.get(token);
-        return loggedUser!=null;
+        Employee loggedEmployee = authorizeds.get(token);
+        return loggedEmployee!=null;
     }
 
     public String login(String email, String password) {
-        User user = userRepository.findByEmailAndPassword(email, password);
-        if(user!=null) {
+        Employee employee = employeeRepository.findByEmailAndPassword(email, password);
+        if(employee!=null) {
             logout(email);
             String token = UUID.randomUUID().toString();
             
-            authorizeds.put(token, User.builder()
-                    .id(user.getId())
-                    .email(user.getEmail())
+            authorizeds.put(token, Employee.builder()
+                    .id(employee.getId())
+                    .email(employee.getEmail())
                     .build());
             
             return token;
@@ -42,18 +42,18 @@ public class Session {
         return null;
     }
     
-    public User getLoggedUser(String token) {
+    public Employee getLoggedEmployee(String token) {
         return authorizeds.get(token);
     }
 
     public void logout(String email) {
         String token=null;
         
-        for (Map.Entry<String, User> entry : authorizeds.entrySet()) {
-            String userToken = entry.getKey();
-            User user = entry.getValue();
-            if(user.getEmail().equals(email)){
-                token = userToken;
+        for (Map.Entry<String, Employee> entry : authorizeds.entrySet()) {
+            String employeeToken = entry.getKey();
+            Employee employee = entry.getValue();
+            if(employee.getEmail().equals(email)){
+                token = employeeToken;
                 break;
             }
         }

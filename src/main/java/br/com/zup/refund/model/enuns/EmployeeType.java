@@ -1,8 +1,6 @@
 package br.com.zup.refund.model.enuns;
 
-public enum UserType {
-
+public enum EmployeeType {
     USER,
-    MANAGER,
-
+    MANAGER
 }

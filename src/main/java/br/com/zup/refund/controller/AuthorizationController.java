@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.zup.refund.model.User;
+import br.com.zup.refund.model.employee.Employee;
 import br.com.zup.refund.session.Session;
 
 @RestController
@@ -22,9 +22,9 @@ public class AuthorizationController extends MainController{
     private Session session;
     
     @PostMapping
-    private ResponseEntity<?> login(@RequestBody User user) {
-        if(StringUtils.isNoneBlank(user.getEmail()) && StringUtils.isNoneBlank(user.getPassword())) {
-            String loginToken = session.login(user.getEmail(), user.getPassword());
+    private ResponseEntity<?> login(@RequestBody Employee employee) {
+        if(StringUtils.isNoneBlank(employee.getEmail()) && StringUtils.isNoneBlank(employee.getPassword())) {
+            String loginToken = session.login(employee.getEmail(), employee.getPassword());
             if(loginToken!=null) {
                 HttpHeaders headers = new HttpHeaders();
                 headers.add("token", loginToken);
@@ -36,11 +36,11 @@ public class AuthorizationController extends MainController{
     
     @GetMapping
     private ResponseEntity<?> logout(HttpServletRequest request) {
-        User user = session.getLoggedUser(request.getHeader("token"));
-        if(user==null) {
+        Employee employee = session.getLoggedEmployee(request.getHeader("token"));
+        if(employee==null) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
-        session.logout(user.getEmail());
+        session.logout(employee.getEmail());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

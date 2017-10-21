@@ -6,25 +6,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import br.com.zup.refund.model.employee.Employee;
 import org.junit.Test;
 
-import br.com.zup.refund.model.to.UserTO;
+import br.com.zup.refund.model.employee.Employee;
+import br.com.zup.refund.model.to.EmployeeTO;
 
 public class MainTOTest {
     
     @Test
     public void shouldMapObject() {
         Employee employee = Employee.builder().id(1l).build();
-        UserTO userTO = new UserTO().map(employee);
-        assertEquals(userTO.getId(), employee.getId());
+        EmployeeTO employeeTO = new EmployeeTO().map(employee);
+        assertEquals(employeeTO.getId(), employee.getId());
     }
     
     @Test
     public void shouldMapListOfObjects() {
         List<Employee> employees =  new ArrayList<Employee>(Arrays.asList(Employee.builder().id(1l).build()));
-        List<UserTO> userTOs = new UserTO().mapList(employees);
-        assertEquals(userTOs.size(), 1);
-        assertEquals(userTOs.get(0).getId(), employees.get(0).getId());
+        List<EmployeeTO> employeeTOs = new EmployeeTO().mapList(employees);
+        assertEquals(employeeTOs.size(), 1);
+        assertEquals(employeeTOs.get(0).getId(), employees.get(0).getId());
     }
 }
