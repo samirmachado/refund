@@ -24,6 +24,9 @@ public class Session {
     public void setup(){
         Employee employee = employeeRepository.findByEmailAndPassword("teste@email.com", "pass");
         authorizeds.put("token", employee);
+
+        Employee employeeManager = employeeRepository.findByEmailAndPassword("manager@email.com", "pass");
+        authorizeds.put("token2", employeeManager);
     }
 
     public Boolean checkAuthorization(String token) {

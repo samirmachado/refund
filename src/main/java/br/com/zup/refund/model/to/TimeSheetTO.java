@@ -28,5 +28,5 @@ public class TimeSheetTO extends MainTO<TimeSheetTO, TimeSheet> {
 
     private TimeSheetApprovalTO timeSheetApproval;
 
-    private Employee employee;
+    private EmployeeTO employee;
 }

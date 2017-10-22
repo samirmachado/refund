@@ -246,10 +246,9 @@ CREATE TABLE IF NOT EXISTS `department` (
 
 -- Copiando dados para a tabela refund.department: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` (`department_id`, `name`, `manager_id`) VALUES
-	(1, 'Delivery', NULL),
-	(2, 'P&D', NULL),
-	(3, 'Departamento 3', NULL);
+INSERT INTO `department` (`department_id`, `name`, `manager_id`) VALUES (1, 'Delivery', 2);
+INSERT INTO `department` (`department_id`, `name`, `manager_id`) VALUES (2, 'P&D', 2);
+INSERT INTO `department` (`department_id`, `name`, `manager_id`) VALUES (3, 'Departamento 3', 2);
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela refund.employee
@@ -268,6 +267,9 @@ CREATE TABLE IF NOT EXISTS `employee` (
 INSERT INTO `employee` (`id`, `email`, `employee_type`, `name`, `password`) VALUES
 	(1, 'teste@email.com', 'USER', 'Teste', 'pass');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+
+INSERT INTO `employee` (`id`, `email`, `employee_type`, `name`, `password`) VALUES
+  (2, 'manager@email.com', 'MANAGER', 'Manager', 'pass');
 
 -- Copiando estrutura para tabela refund.location
 CREATE TABLE IF NOT EXISTS `location` (

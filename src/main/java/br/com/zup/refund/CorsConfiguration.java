@@ -18,7 +18,7 @@ public class CorsConfiguration {
         ImmutableList.of("*").forEach(origin -> config.addAllowedOrigin(origin));
         ImmutableList.of("POST", "GET", "PUT", "OPTIONS", "DELETE").forEach(method -> config.addAllowedMethod(method));
         ImmutableList.of(
-                "token"
+                "token", "content-type"
         ).forEach(
                 header -> config.addAllowedHeader(header)
         );
