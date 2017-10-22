@@ -20,7 +20,7 @@ import lombok.Setter;
 
 @Entity
 @Builder
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
@@ -35,8 +35,11 @@ public class PrimaryInformation {
     private Employee employee;
 
     private LocalDate date;
+
     private LocalDateTime startTime;
+
     private LocalDateTime endTime;
+
     private LocalTime duration;
 
     @ManyToOne

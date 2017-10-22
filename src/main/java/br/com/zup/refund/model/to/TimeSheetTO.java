@@ -1,7 +1,9 @@
 package br.com.zup.refund.model.to;
 
 
+import br.com.zup.refund.model.ConfigurationInformation;
 import br.com.zup.refund.model.Employee;
+import br.com.zup.refund.model.TimeSheet;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,12 +13,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Builder
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-public class TimeSheetTO {
+public class TimeSheetTO extends MainTO<TimeSheetTO, TimeSheet> {
 
     private Long timeSheetId;
 
