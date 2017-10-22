@@ -17,6 +17,10 @@ abstract class MainController {
         return new ResponseEntity<T>(object, HttpStatus.OK);
     }
     
+    protected <T> ResponseEntity<T> responseOk() {
+        return new ResponseEntity<T>(HttpStatus.OK);
+    }
+    
     protected <T> ResponseEntity<T> responseBadRequest(T object) {
         return new ResponseEntity<T>(object, HttpStatus.BAD_REQUEST);
     }
