@@ -1,13 +1,7 @@
 package br.com.zup.refund.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -30,10 +24,10 @@ public class TimeSheet {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long timeSheetId;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private PrimaryInformation primaryInformation;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Classification classification;
 
     @OneToOne(fetch = FetchType.EAGER)

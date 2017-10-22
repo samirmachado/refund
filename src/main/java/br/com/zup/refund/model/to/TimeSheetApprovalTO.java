@@ -18,7 +18,7 @@ public class TimeSheetApprovalTO {
 
     private Long id;
 
-    private TimeSheetTO timeSheetTO;
+    private TimeSheetTO timeSheet;
 
     private Long status;
 

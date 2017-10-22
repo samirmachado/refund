@@ -22,12 +22,11 @@ public class TimeSheetTO extends MainTO<TimeSheetTO, TimeSheet> {
 
     private Long timeSheetId;
 
-    
-    private PrimaryInformationTO primaryInformationTO;
+    private PrimaryInformationTO primaryInformation;
 
-    private ClassificationTO classificationTO;
+    private ClassificationTO classification;
 
-    private TimeSheetApprovalTO timeSheetApprovalTO;
+    private TimeSheetApprovalTO timeSheetApproval;
 
     private Employee employee;
 }

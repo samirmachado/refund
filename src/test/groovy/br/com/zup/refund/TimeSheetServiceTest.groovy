@@ -19,17 +19,17 @@ class TimeSheetServiceTest extends Specification {
     TimeSheetRepository timeSheetRepository = Mock(TimeSheetRepository)
     TimeSheetService timeSheetService = new TimeSheetServiceImpl(timeSheetRepository)
 
-    def timeSheet
+    def timeSheet = buildTimeSheet()
 
     def "should get configurations"(){
         timeSheet = buildTimeSheet()
 
         when:
-        timeSheetService.create()
+        def savedTimeSheet = timeSheetService.create(timeSheet)
 
         then:
-        1 * configurationInformationRepository.findAll() >> configurations
-        configurationsFound == configurations.get(0)
+        1 * timeSheetRepository.save(timeSheet) >> timeSheet
+        savedTimeSheet == timeSheet
     }
 
     def buildTimeSheet(){
@@ -65,11 +65,20 @@ class TimeSheetServiceTest extends Specification {
             .caseTaskEvent(caseTaskEvent)
             .build()
 
+        def timeSheetApproval = TimeSheetApproval.builder()
+            .id(1L)
+            .employee(employee)
+            .status(1L)
+            .memo("blahblahblah")
+            .build()
+
+
         return TimeSheet.builder()
                 .timeSheetId(1L)
                 .primaryInformation(primaryInformation)
                 .classification(classification)
-
-
+                .employee(employee)
+                .timeSheetApproval(timeSheetApproval)
+                .build()
     }
 }

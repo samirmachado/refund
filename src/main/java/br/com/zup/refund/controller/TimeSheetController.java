@@ -5,9 +5,7 @@ import br.com.zup.refund.model.to.ConfigurationInformationTO;
 import br.com.zup.refund.model.to.TimeSheetTO;
 import br.com.zup.refund.service.TimeSheetService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TimeSheetController extends MainController{
@@ -19,7 +17,7 @@ public class TimeSheetController extends MainController{
     }
 
     @PostMapping("/timesheets")
-    public ResponseEntity<?> create(TimeSheet timeSheet){
+    public ResponseEntity<?> create(@RequestBody TimeSheet timeSheet){
         TimeSheetTO timeSheetTO = new TimeSheetTO().map(timeSheetService.create(timeSheet));
         return responseOk(timeSheetTO);
     }
