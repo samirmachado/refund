@@ -45,7 +45,7 @@ public class Employee {
     private List<TimeSheetApproval> timeSheetApprovals;
     
   //departamentos do gestor
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "manager")
     private List<Department> departments;
 
     @Enumerated(value = EnumType.STRING)

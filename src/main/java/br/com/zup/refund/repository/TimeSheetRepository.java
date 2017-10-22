@@ -16,7 +16,7 @@ public interface TimeSheetRepository extends JpaRepository<TimeSheet, Long>{
     List<TimeSheet> findByEmployee(Employee employee);
     
     @Query("select ts from TimeSheet ts "
-            + "join ts.classification c"
+            + "join ts.classification c "
             + "join c.department d "
             + "join d.manager m "
             + "where m.id = :managerId and ts.timeSheetApproval is null")
