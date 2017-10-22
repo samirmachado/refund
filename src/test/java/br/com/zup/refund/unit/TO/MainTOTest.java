@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import br.com.zup.refund.model.employee.Employee;
+import br.com.zup.refund.model.Employee;
 import br.com.zup.refund.model.to.EmployeeTO;
 
 public class MainTOTest {

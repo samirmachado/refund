@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
 import br.com.zup.refund.MainIntegratedTest;
-import br.com.zup.refund.model.employee.Employee;
+import br.com.zup.refund.model.Employee;
 import br.com.zup.refund.repository.EmployeeRepository;
 
 public class AuthorizationControllerTest extends MainIntegratedTest{

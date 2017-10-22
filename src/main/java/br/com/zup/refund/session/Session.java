@@ -9,10 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
-import br.com.zup.refund.model.employee.Employee;
+import br.com.zup.refund.model.Employee;
 import br.com.zup.refund.repository.EmployeeRepository;
-
-import javax.annotation.PostConstruct;
 
 @ApplicationScope
 @Component

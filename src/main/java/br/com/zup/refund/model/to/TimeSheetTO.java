@@ -1,10 +1,14 @@
-package br.com.zup.refund.model.to.timesheet;
+package br.com.zup.refund.model.to;
 
 
-import br.com.zup.refund.model.employee.Employee;
-import lombok.*;
-
-import javax.persistence.*;
+import br.com.zup.refund.model.Employee;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

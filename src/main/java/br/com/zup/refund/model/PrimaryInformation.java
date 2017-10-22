@@ -1,15 +1,22 @@
-package br.com.zup.refund.model.timesheet;
+package br.com.zup.refund.model;
 
-import br.com.zup.refund.model.employee.Employee;
-import br.com.zup.refund.model.customerdata.CaseTaskEvent;
-import br.com.zup.refund.model.customerdata.Customer;
-import br.com.zup.refund.model.customerdata.ServiceItem;
-import lombok.*;
-
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Builder

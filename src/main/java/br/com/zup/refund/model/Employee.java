@@ -1,14 +1,22 @@
-package br.com.zup.refund.model.employee;
+package br.com.zup.refund.model;
 
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import br.com.zup.refund.model.enuns.EmployeeType;
-import br.com.zup.refund.model.timesheet.PrimaryInformation;
-import br.com.zup.refund.model.timesheet.TimeSheet;
-import br.com.zup.refund.model.timesheet.TimeSheetApproval;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Builder

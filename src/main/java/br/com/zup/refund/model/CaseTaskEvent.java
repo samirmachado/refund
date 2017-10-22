@@ -1,13 +1,24 @@
-package br.com.zup.refund.model.customerdata;
+package br.com.zup.refund.model;
 
-import br.com.zup.refund.model.ConfigurationInformation;
-import br.com.zup.refund.model.enuns.TaskEventType;
-import br.com.zup.refund.model.timesheet.Classification;
-import br.com.zup.refund.model.timesheet.PrimaryInformation;
-import lombok.*;
-
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import br.com.zup.refund.model.enuns.TaskEventType;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Builder
@@ -33,6 +44,6 @@ public class CaseTaskEvent {
     @OneToMany(mappedBy = "caseTaskEvent")
     private List<PrimaryInformation> primaryInformations;
 
-    @OneToMany(mappedBy = "caseTaskEvent")
+    @ManyToMany(mappedBy = "caseTaskEvent")
     private List<ConfigurationInformation> configurationInformation;
 }

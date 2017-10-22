@@ -1,11 +1,14 @@
 package br.com.zup.refund.model.to;
 
-import br.com.zup.refund.model.ConfigurationInformation;
-import br.com.zup.refund.model.to.customerdata.*;
-import lombok.*;
-
-import javax.persistence.*;
 import java.util.List;
+
+import br.com.zup.refund.model.ConfigurationInformation;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
 @NoArgsConstructor

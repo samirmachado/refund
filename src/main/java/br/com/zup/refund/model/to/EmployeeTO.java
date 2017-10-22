@@ -1,6 +1,6 @@
 package br.com.zup.refund.model.to;
 
-import br.com.zup.refund.model.employee.Employee;
+import br.com.zup.refund.model.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

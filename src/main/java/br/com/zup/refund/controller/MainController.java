@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import br.com.zup.refund.model.exception.InvalidTokenException;
 
 @Component
-public class MainController {
+abstract class MainController {
     protected <T> ResponseEntity<T> responseCreated(T object) {
         return new ResponseEntity<T>(object, HttpStatus.CREATED);
     }

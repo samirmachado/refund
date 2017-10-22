@@ -1,14 +1,16 @@
-package br.com.zup.refund.model.to.timesheet;
-
-import br.com.zup.refund.model.to.EmployeeTO;
-import br.com.zup.refund.model.to.customerdata.CaseTaskEventTO;
-import br.com.zup.refund.model.to.customerdata.CustomerTO;
-import br.com.zup.refund.model.to.customerdata.ServiceItemTO;
-import lombok.*;
+package br.com.zup.refund.model.to;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

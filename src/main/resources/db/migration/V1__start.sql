@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `case_task_event` (
   PRIMARY KEY (`case_task_event_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela refund.case_task_event: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela refund.case_task_event: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `case_task_event` DISABLE KEYS */;
 INSERT INTO `case_task_event` (`case_task_event_id`, `name`, `type`) VALUES
 	(1, 'Case 1', 'C'),
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `clasz` (
   PRIMARY KEY (`class_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela refund.clasz: ~6 rows (aproximadamente)
+-- Copiando dados para a tabela refund.clasz: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `clasz` DISABLE KEYS */;
 INSERT INTO `clasz` (`class_id`, `name`) VALUES
 	(1, '1 - CEO'),
@@ -75,6 +75,114 @@ INSERT INTO `clasz` (`class_id`, `name`) VALUES
 	(6, '3 - Finance');
 /*!40000 ALTER TABLE `clasz` ENABLE KEYS */;
 
+-- Copiando estrutura para tabela refund.configuration_information
+CREATE TABLE IF NOT EXISTS `configuration_information` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela refund.configuration_information: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `configuration_information` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuration_information` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela refund.configuration__case_task_event
+CREATE TABLE IF NOT EXISTS `configuration__case_task_event` (
+  `id` bigint(20) NOT NULL,
+  `case_task_event_id` bigint(20) NOT NULL,
+  KEY `FK1iiiq9lxv4009hoyvlext8uy5` (`case_task_event_id`),
+  KEY `FK9puksqhfvxwked7iai167jw74` (`id`),
+  CONSTRAINT `FK1iiiq9lxv4009hoyvlext8uy5` FOREIGN KEY (`case_task_event_id`) REFERENCES `case_task_event` (`case_task_event_id`),
+  CONSTRAINT `FK9puksqhfvxwked7iai167jw74` FOREIGN KEY (`id`) REFERENCES `configuration_information` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela refund.configuration__case_task_event: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `configuration__case_task_event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuration__case_task_event` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela refund.configuration__clasz
+CREATE TABLE IF NOT EXISTS `configuration__clasz` (
+  `id` bigint(20) NOT NULL,
+  `class_id` bigint(20) NOT NULL,
+  KEY `FKegr63ehog8wm6lq90mhh2du1r` (`class_id`),
+  KEY `FK8lpwdhohq0bc6e12a6mblptmw` (`id`),
+  CONSTRAINT `FK8lpwdhohq0bc6e12a6mblptmw` FOREIGN KEY (`id`) REFERENCES `configuration_information` (`id`),
+  CONSTRAINT `FKegr63ehog8wm6lq90mhh2du1r` FOREIGN KEY (`class_id`) REFERENCES `clasz` (`class_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela refund.configuration__clasz: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `configuration__clasz` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuration__clasz` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela refund.configuration__customer
+CREATE TABLE IF NOT EXISTS `configuration__customer` (
+  `id` bigint(20) NOT NULL,
+  `customer_id` bigint(20) NOT NULL,
+  KEY `FK54tyhpbn3tg5nc15lapmx0dej` (`customer_id`),
+  KEY `FK4x3hk5jhgpbx5l8io8to4u433` (`id`),
+  CONSTRAINT `FK4x3hk5jhgpbx5l8io8to4u433` FOREIGN KEY (`id`) REFERENCES `configuration_information` (`id`),
+  CONSTRAINT `FK54tyhpbn3tg5nc15lapmx0dej` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela refund.configuration__customer: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `configuration__customer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuration__customer` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela refund.configuration__department
+CREATE TABLE IF NOT EXISTS `configuration__department` (
+  `id` bigint(20) NOT NULL,
+  `department_id` bigint(20) NOT NULL,
+  KEY `FKjp4ffy6tyc6c4j9t52neajpdc` (`department_id`),
+  KEY `FK8ow15g7g63q8ngt5m49t5ah0p` (`id`),
+  CONSTRAINT `FK8ow15g7g63q8ngt5m49t5ah0p` FOREIGN KEY (`id`) REFERENCES `configuration_information` (`id`),
+  CONSTRAINT `FKjp4ffy6tyc6c4j9t52neajpdc` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela refund.configuration__department: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `configuration__department` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuration__department` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela refund.configuration__location
+CREATE TABLE IF NOT EXISTS `configuration__location` (
+  `id` bigint(20) NOT NULL,
+  `location_id` bigint(20) NOT NULL,
+  KEY `FKta4xwsssgx5l7s7r3ff119tey` (`location_id`),
+  KEY `FK12o40kpi4ygir1jr80mp2hrjh` (`id`),
+  CONSTRAINT `FK12o40kpi4ygir1jr80mp2hrjh` FOREIGN KEY (`id`) REFERENCES `configuration_information` (`id`),
+  CONSTRAINT `FKta4xwsssgx5l7s7r3ff119tey` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela refund.configuration__location: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `configuration__location` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuration__location` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela refund.configuration__service_item
+CREATE TABLE IF NOT EXISTS `configuration__service_item` (
+  `id` bigint(20) NOT NULL,
+  `item_id` bigint(20) NOT NULL,
+  KEY `FKkil1ljc70pvbdvj4aippivldk` (`item_id`),
+  KEY `FKeq2puiv81gby30hbonj2nqhgh` (`id`),
+  CONSTRAINT `FKeq2puiv81gby30hbonj2nqhgh` FOREIGN KEY (`id`) REFERENCES `configuration_information` (`id`),
+  CONSTRAINT `FKkil1ljc70pvbdvj4aippivldk` FOREIGN KEY (`item_id`) REFERENCES `service_item` (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela refund.configuration__service_item: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `configuration__service_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuration__service_item` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela refund.configuration__subsidiary
+CREATE TABLE IF NOT EXISTS `configuration__subsidiary` (
+  `id` bigint(20) NOT NULL,
+  `subsidiary_id` bigint(20) NOT NULL,
+  KEY `FK1atuu0j6jrq41kjtfjd0e19p7` (`subsidiary_id`),
+  KEY `FK60dxo8btmhp5oqed3x4d0ofn2` (`id`),
+  CONSTRAINT `FK1atuu0j6jrq41kjtfjd0e19p7` FOREIGN KEY (`subsidiary_id`) REFERENCES `subsidiary` (`subsidiary_id`),
+  CONSTRAINT `FK60dxo8btmhp5oqed3x4d0ofn2` FOREIGN KEY (`id`) REFERENCES `configuration_information` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Copiando dados para a tabela refund.configuration__subsidiary: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `configuration__subsidiary` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuration__subsidiary` ENABLE KEYS */;
+
 -- Copiando estrutura para tabela refund.customer
 CREATE TABLE IF NOT EXISTS `customer` (
   `customer_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -82,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela refund.customer: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela refund.customer: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
 INSERT INTO `customer` (`customer_id`, `name`) VALUES
 	(1, 'Ipiranga'),
@@ -97,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `department` (
   PRIMARY KEY (`department_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela refund.department: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela refund.department: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
 INSERT INTO `department` (`department_id`, `name`) VALUES
 	(1, 'Delivery'),
@@ -129,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   PRIMARY KEY (`location_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela refund.location: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela refund.location: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `location` DISABLE KEYS */;
 INSERT INTO `location` (`location_id`, `name`) VALUES
 	(1, 'Belo Horizonte'),
@@ -174,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `service_item` (
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela refund.service_item: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela refund.service_item: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `service_item` DISABLE KEYS */;
 INSERT INTO `service_item` (`item_id`, `description`) VALUES
 	(1, 'Desenvolvimento'),
@@ -189,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `subsidiary` (
   PRIMARY KEY (`subsidiary_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela refund.subsidiary: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela refund.subsidiary: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `subsidiary` DISABLE KEYS */;
 INSERT INTO `subsidiary` (`subsidiary_id`, `name`) VALUES
 	(1, 'BH'),
