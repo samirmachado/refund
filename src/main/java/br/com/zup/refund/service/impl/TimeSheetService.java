@@ -17,7 +17,11 @@ public class TimeSheetService {
         this.timeSheetRepository = timeSheetRepository;
     }
 
-    public List<TimeSheet> getPendingTimeSheetsOf(Employee employee) {
+    public List<TimeSheet> getPendingTimeSheetsOfManager(Employee employee) {
+        return timeSheetRepository.findTimeSheetsOfManager(employee.getId());
+    }
+
+    public List<TimeSheet> listByEmployee(Employee employee) {
         return timeSheetRepository.findByEmployee(employee);
     }
 }

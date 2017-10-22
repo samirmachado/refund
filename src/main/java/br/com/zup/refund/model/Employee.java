@@ -43,6 +43,10 @@ public class Employee {
     //aprovações que fiz
     @OneToMany(mappedBy = "employee")
     private List<TimeSheetApproval> timeSheetApprovals;
+    
+  //departamentos do gestor
+    @OneToMany(mappedBy = "employee")
+    private List<Department> departments;
 
     @Enumerated(value = EnumType.STRING)
     private EmployeeType employeeType;

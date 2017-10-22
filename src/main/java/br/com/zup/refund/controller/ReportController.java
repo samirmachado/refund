@@ -31,15 +31,22 @@ public class ReportController extends MainController{
         this.timeSheetService = timeSheetService;
     }
     
+    @GetMapping("/list-my-timesheets")
+    public ResponseEntity<?> listMyTimeSheets(HttpServletRequest httpServletRequest){
+        Employee employee = session.getLoggedEmployee(httpServletRequest.getHeader("token"));
+        List<TimeSheet> timeSheets = timeSheetService.listByEmployee(employee);
+        return responseOk(new TimeSheetTO().mapList(timeSheets));
+    }
+    
     @GetMapping("/pendents-timesheets")
     public ResponseEntity<?> pendingTimeSheets(HttpServletRequest httpServletRequest){
         Employee employee = session.getLoggedEmployee(httpServletRequest.getHeader("token"));
-        List<TimeSheet> timeSheets = timeSheetService.getPendingTimeSheetsOf(employee);
+        List<TimeSheet> timeSheets = timeSheetService.getPendingTimeSheetsOfManager(employee);
         return responseOk(new TimeSheetTO().mapList(timeSheets));
     }
 
-    @PostMapping("/approve")
-    public ResponseEntity<?> approve(@RequestBody TimeSheetApproval timeSheetApproval, HttpServletRequest httpServletRequest){
+    @PostMapping("/approve-timesheet")
+    public ResponseEntity<?> approveTimeSheet(@RequestBody TimeSheetApproval timeSheetApproval, HttpServletRequest httpServletRequest){
         Employee employee = session.getLoggedEmployee(httpServletRequest.getHeader("token"));
         timeSheetApprovalService.approve(timeSheetApproval, employee);
         return responseOk();
