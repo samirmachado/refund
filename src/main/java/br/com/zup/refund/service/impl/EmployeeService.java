@@ -1,4 +1,4 @@
-package br.com.zup.refund.service;
+package br.com.zup.refund.service.impl;
 
 import org.springframework.stereotype.Service;
 

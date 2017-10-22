@@ -1,5 +1,6 @@
 package br.com.zup.refund.model.customerdata;
 
+import br.com.zup.refund.model.ConfigurationInformation;
 import br.com.zup.refund.model.enuns.TaskEventType;
 import br.com.zup.refund.model.timesheet.Classification;
 import br.com.zup.refund.model.timesheet.PrimaryInformation;
@@ -32,4 +33,7 @@ public class CaseTaskEvent {
 
     @OneToMany(mappedBy = "caseTaskEvent")
     private List<PrimaryInformation> primaryInformations;
+
+    @OneToMany(mappedBy = "caseTaskEvent")
+    private List<ConfigurationInformation> configurationInformation;
 }

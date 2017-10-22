@@ -1,5 +1,6 @@
 package br.com.zup.refund.model.customerdata;
 
+import br.com.zup.refund.model.ConfigurationInformation;
 import br.com.zup.refund.model.timesheet.Classification;
 import lombok.*;
 
@@ -24,4 +25,7 @@ public class Subsidiary {
 
     @OneToMany(mappedBy = "subsidiary")
     List<Classification> classifications;
+
+    @OneToMany(mappedBy = "subsidiary")
+    private List<ConfigurationInformation> configurationInformation;
 }

@@ -1,4 +1,4 @@
-package br.com.zup.refund.model.customerdata;
+package br.com.zup.refund.model.to.customerdata;
 
 import br.com.zup.refund.model.ConfigurationInformation;
 import br.com.zup.refund.model.timesheet.Classification;
@@ -15,17 +15,14 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode(callSuper = false)
-public class Clasz {
+public class ClaszTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long classId;
 
     private String name;
 
-    @OneToMany(mappedBy = "clasz")
     List<Classification> classifications;
 
-    @OneToMany(mappedBy = "clasz")
     private List<ConfigurationInformation> configurationInformation;
 }

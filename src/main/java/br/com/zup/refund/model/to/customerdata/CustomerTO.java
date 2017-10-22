@@ -1,13 +1,11 @@
-package br.com.zup.refund.model.customerdata;
+package br.com.zup.refund.model.to.customerdata;
 
 import br.com.zup.refund.model.ConfigurationInformation;
 import br.com.zup.refund.model.timesheet.PrimaryInformation;
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.List;
 
-@Entity
 @Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
@@ -15,18 +13,13 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode(callSuper = false)
-public class ServiceItem {
+public class CustomerTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long itemId;
+    private Long customerId;
 
-    private String description;
+    private String name;
 
-    @OneToMany(mappedBy = "serviceItem")
     private List<PrimaryInformation> primaryInformations;
 
-    @OneToMany(mappedBy = "serviceItem")
     private List<ConfigurationInformation> configurationInformation;
-
 }

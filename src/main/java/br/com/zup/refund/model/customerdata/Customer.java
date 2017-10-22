@@ -1,5 +1,6 @@
 package br.com.zup.refund.model.customerdata;
 
+import br.com.zup.refund.model.ConfigurationInformation;
 import br.com.zup.refund.model.employee.Employee;
 import br.com.zup.refund.model.timesheet.PrimaryInformation;
 import lombok.*;
@@ -25,4 +26,7 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer")
     private List<PrimaryInformation> primaryInformations;
+
+    @OneToMany(mappedBy = "customer")
+    private List<ConfigurationInformation> configurationInformation;
 }

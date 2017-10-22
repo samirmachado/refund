@@ -1,13 +1,13 @@
-package br.com.zup.refund.model.customerdata;
+package br.com.zup.refund.model.to.customerdata;
 
 import br.com.zup.refund.model.ConfigurationInformation;
+import br.com.zup.refund.model.enuns.TaskEventType;
 import br.com.zup.refund.model.timesheet.Classification;
+import br.com.zup.refund.model.timesheet.PrimaryInformation;
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.List;
 
-@Entity
 @Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
@@ -15,17 +15,17 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode(callSuper = false)
-public class Clasz {
+public class CaseTaskEventTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long classId;
+    private Long caseTaskEventId;
 
     private String name;
 
-    @OneToMany(mappedBy = "clasz")
+    private TaskEventType type;
+
     List<Classification> classifications;
 
-    @OneToMany(mappedBy = "clasz")
+    private List<PrimaryInformation> primaryInformations;
+
     private List<ConfigurationInformation> configurationInformation;
 }

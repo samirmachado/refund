@@ -13,7 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeTO extends MainTO<EmployeeTO, Employee>{
+
     private Long id;
+
     private String name;
+
     private String email;
 }
