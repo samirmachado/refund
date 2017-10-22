@@ -28,9 +28,4 @@ public class CaseTaskEventTO {
 
     private TaskEventType type;
 
-    List<Classification> classifications;
-
-    private List<PrimaryInformation> primaryInformations;
-
-    private List<ConfigurationInformation> configurationInformation;
 }

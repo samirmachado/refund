@@ -24,8 +24,4 @@ public class ClaszTO {
     private Long classId;
 
     private String name;
-
-    List<Classification> classifications;
-
-    private List<ConfigurationInformation> configurationInformation;
 }

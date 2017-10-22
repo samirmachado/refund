@@ -1,13 +1,13 @@
 package br.com.zup.refund
 
 import br.com.zup.refund.model.ConfigurationInformation
-import br.com.zup.refund.model.customerdata.CaseTaskEvent
-import br.com.zup.refund.model.customerdata.Clasz
-import br.com.zup.refund.model.customerdata.Customer
-import br.com.zup.refund.model.customerdata.Department
-import br.com.zup.refund.model.customerdata.Location
-import br.com.zup.refund.model.customerdata.ServiceItem
-import br.com.zup.refund.model.customerdata.Subsidiary
+import br.com.zup.refund.model.CaseTaskEvent
+import br.com.zup.refund.model.Clasz
+import br.com.zup.refund.model.Customer
+import br.com.zup.refund.model.Department
+import br.com.zup.refund.model.Location
+import br.com.zup.refund.model.ServiceItem
+import br.com.zup.refund.model.Subsidiary
 import br.com.zup.refund.repository.ConfigurationInformationRepository
 import br.com.zup.refund.service.ConfigurationInformationService
 import br.com.zup.refund.service.impl.ConfigurationInformationServiceImpl

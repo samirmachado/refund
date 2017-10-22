@@ -24,8 +24,4 @@ public class ServiceItemTO {
 
     private String description;
 
-    private List<PrimaryInformation> primaryInformations;
-
-    private List<ConfigurationInformation> configurationInformation;
-
 }

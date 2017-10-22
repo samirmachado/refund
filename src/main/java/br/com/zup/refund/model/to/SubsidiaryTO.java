@@ -24,7 +24,4 @@ public class SubsidiaryTO {
 
     private String name;
 
-    List<Classification> classifications;
-
-    private List<ConfigurationInformation> configurationInformation;
 }

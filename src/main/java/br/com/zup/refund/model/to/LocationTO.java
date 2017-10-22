@@ -24,7 +24,4 @@ public class LocationTO {
 
     private String name;
 
-    List<Classification> classifications;
-
-    private List<ConfigurationInformation> configurationInformation;
 }

@@ -24,7 +24,4 @@ public class CustomerTO {
 
     private String name;
 
-    private List<PrimaryInformation> primaryInformations;
-
-    private List<ConfigurationInformation> configurationInformation;
 }

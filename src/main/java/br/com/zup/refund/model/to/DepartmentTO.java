@@ -23,8 +23,4 @@ public class DepartmentTO {
     private Long departmentId;
 
     private String name;
-
-    List<Classification> classifications;
-
-    private List<ConfigurationInformation> configurationInformation;
 }
