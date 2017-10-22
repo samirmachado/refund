@@ -2,27 +2,20 @@ package br.com.zup.refund.model.employee;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import br.com.zup.refund.model.enuns.EmployeeType;
 import br.com.zup.refund.model.timesheet.PrimaryInformation;
 import br.com.zup.refund.model.timesheet.TimeSheet;
 import br.com.zup.refund.model.timesheet.TimeSheetApproval;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Employee {
     
     @Id
@@ -43,6 +36,7 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private List<TimeSheetApproval> timeSheetApprovals;
 
+    @Enumerated(value = EnumType.STRING)
     private EmployeeType employeeType;
 
     @OneToMany(mappedBy = "employee")

@@ -109,15 +109,17 @@ INSERT INTO `department` (`department_id`, `name`) VALUES
 CREATE TABLE IF NOT EXISTS `employee` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
-  `employee_type` int(11) DEFAULT NULL,
+  `employee_type` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_fopic1oh5oln2khj8eat6ino0` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela refund.employee: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` (`id`, `email`, `employee_type`, `name`, `password`) VALUES
+	(1, 'teste@email.com', 'USER', 'Teste', 'pass');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela refund.location

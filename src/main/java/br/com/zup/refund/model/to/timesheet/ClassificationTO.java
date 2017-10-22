@@ -5,13 +5,11 @@ import lombok.*;
 
 import javax.persistence.Entity;
 
-@Entity
 @Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @EqualsAndHashCode(callSuper = false)
 public class ClassificationTO {
 

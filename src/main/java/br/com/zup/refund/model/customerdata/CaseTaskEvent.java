@@ -15,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @EqualsAndHashCode(callSuper = false)
 public class CaseTaskEvent {
 

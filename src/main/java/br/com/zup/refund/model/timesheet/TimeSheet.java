@@ -12,7 +12,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @EqualsAndHashCode(callSuper = false)
 public class TimeSheet {
 

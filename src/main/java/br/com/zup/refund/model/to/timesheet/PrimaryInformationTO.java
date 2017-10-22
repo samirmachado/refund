@@ -15,7 +15,6 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @EqualsAndHashCode(callSuper = false)
 public class PrimaryInformationTO {
 

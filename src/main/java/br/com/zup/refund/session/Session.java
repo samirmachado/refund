@@ -12,6 +12,8 @@ import org.springframework.web.context.annotation.ApplicationScope;
 import br.com.zup.refund.model.employee.Employee;
 import br.com.zup.refund.repository.EmployeeRepository;
 
+import javax.annotation.PostConstruct;
+
 @ApplicationScope
 @Component
 public class Session {
@@ -20,8 +22,14 @@ public class Session {
     private EmployeeRepository employeeRepository;
     
     Map<String, Employee> authorizeds = new HashMap<String, Employee>();
-    
+
+    public void setup(){
+        Employee employee = employeeRepository.findByEmailAndPassword("teste@email.com", "pass");
+        authorizeds.put("token", employee);
+    }
+
     public Boolean checkAuthorization(String token) {
+        setup();
         Employee loggedEmployee = authorizeds.get(token);
         return loggedEmployee!=null;
     }

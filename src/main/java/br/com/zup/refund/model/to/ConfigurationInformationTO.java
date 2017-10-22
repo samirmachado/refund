@@ -7,13 +7,11 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @EqualsAndHashCode(callSuper = false)
 public class ConfigurationInformationTO extends MainTO<ConfigurationInformationTO, ConfigurationInformation> {
 
