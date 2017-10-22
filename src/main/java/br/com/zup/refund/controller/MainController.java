@@ -25,6 +25,14 @@ abstract class MainController {
         return new ResponseEntity<T>(object, HttpStatus.BAD_REQUEST);
     }
     
+    protected <T> ResponseEntity<T> responseUnauthorized(T object) {
+        return new ResponseEntity<T>(object, HttpStatus.UNAUTHORIZED);
+    }
+    
+    protected <T> ResponseEntity<T> responseUnauthorized() {
+        return new ResponseEntity<T>(HttpStatus.UNAUTHORIZED);
+    }
+    
     protected <T> ResponseEntity<T> responseNotFound(T object) {
         return new ResponseEntity<T>(object, HttpStatus.NOT_FOUND);
     }

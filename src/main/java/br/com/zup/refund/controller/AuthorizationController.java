@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.zup.refund.model.Employee;
+import br.com.zup.refund.model.to.EmployeeTO;
 import br.com.zup.refund.session.Session;
 
 @RestController
@@ -28,19 +29,29 @@ public class AuthorizationController extends MainController{
             if(loginToken!=null) {
                 HttpHeaders headers = new HttpHeaders();
                 headers.add("token", loginToken);
-                return new ResponseEntity<>(headers, HttpStatus.OK);
+                EmployeeTO employeeTO = new EmployeeTO().map(session.getLoggedEmployee(loginToken));
+                return new ResponseEntity<>(employeeTO, headers, HttpStatus.OK);
             }
         }
-        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        return responseUnauthorized();
+    }
+    
+    @GetMapping("/get-logged-user")
+    private ResponseEntity<?> getLoggedUser(HttpServletRequest request) {
+        Employee employee = session.getLoggedEmployee(request.getHeader("token"));
+        if(employee==null) {
+            return responseUnauthorized();
+        }
+        return responseOk(new EmployeeTO().map(employee));
     }
     
     @GetMapping
     private ResponseEntity<?> logout(HttpServletRequest request) {
         Employee employee = session.getLoggedEmployee(request.getHeader("token"));
         if(employee==null) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            return responseUnauthorized();
         }
         session.logout(employee.getEmail());
-        return new ResponseEntity<>(HttpStatus.OK);
+        return responseOk();
     }
 }
