@@ -22,6 +22,7 @@ public class TimeSheetServiceImpl implements TimeSheetService {
     public TimeSheet create(TimeSheet timeSheet) {
         Employee employeeFound = employeeRepository.findOne(timeSheet.getPrimaryInformation().getEmployee().getId());
         timeSheet.getPrimaryInformation().setEmployee(employeeFound);
+        timeSheet.setEmployee(employeeFound);
         Long timeSheetId = timeSheetRepository.save(timeSheet).getTimeSheetId();
         return timeSheetRepository.findOne(timeSheetId);
     }
